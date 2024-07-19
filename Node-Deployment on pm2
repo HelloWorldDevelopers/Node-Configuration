@@ -1,0 +1,202 @@
+------------------------------------------------DEPLOYMENT COMMANDS-------------------------------------------------------------------
+
+ 1)  sudo npm install pm2 -g
+ 2)  pm2 start Node-Grpah-api/ -i 4 --name Node-Graph-api # start the project on sever
+ 3)  pm2 startup
+ 4)  pm2 save
+ 5)  pm2 status # check status 
+ 6)  pm2 kill # kill all process
+ 7)  pm2 list # show all project list
+ 8)  pm2 stop Node-Graph-api
+ 9) pm2 restart all   # restrart all app and start
+10) pm2 stop all
+
+
+
+
+
+----------------------------------------------------------------------------------------PUTTY COMMAND PROMT-------------------------------------------------------------------------------------
+login as: root
+root@172.20.1.174's password:
+Web console: https://HRMS-DB:9090/ or https://172.20.1.174:9090/
+
+Last login: Thu Jul 18 18:35:37 2024 from 192.168.0.54
+[root@HRMS-DB ~]# cd hrms-react-uat/
+[root@HRMS-DB hrms-react-uat]# ll
+total 0
+drwxr-xr-x. 7 root root 150 Jun 27 16:23 ets-test
+drwxr-xr-x. 5 root root 123 Jun 25 10:22 hrms-react
+drwxr-xr-x. 4 root root  98 Jul 18 11:47 Node-Grpah-api
+[root@HRMS-DB hrms-react-uat]# pm2 status
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ Node-Graph-api     │ cluster  │ 0    │ online    │ 0%       │ 38.4mb   │
+│ 1  │ Node-Graph-api     │ cluster  │ 0    │ online    │ 0%       │ 38.4mb   │
+│ 2  │ Node-Graph-api     │ cluster  │ 0    │ online    │ 0%       │ 38.6mb   │
+│ 3  │ Node-Graph-api     │ cluster  │ 0    │ online    │ 0%       │ 38.5mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+[root@HRMS-DB hrms-react-uat]# ^C
+[root@HRMS-DB hrms-react-uat]# pm2 kill
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0, 1, 2, 3 ])
+[PM2] [Node-Graph-api](1) ✓
+[PM2] [Node-Graph-api](0) ✓
+[PM2] [Node-Graph-api](2) ✓
+[PM2] [Node-Graph-api](3) ✓
+[PM2] [v] All Applications Stopped
+[PM2] [v] PM2 Daemon Stopped
+[root@HRMS-DB hrms-react-uat]# pm2 status
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 list
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 start
+[PM2][ERROR] File ecosystem.config.js not found
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Graph-api/ -i 1 --name Node-Graph-api
+[PM2][ERROR] Script not found: /root/hrms-react-uat/Node-Graph-api
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Graph-api/ -i 1 --name Node-Graph-api
+[PM2][ERROR] Script not found: /root/hrms-react-uat/Node-Graph-api
+[root@HRMS-DB hrms-react-uat]# ll
+total 0
+drwxr-xr-x. 7 root root 150 Jun 27 16:23 ets-test
+drwxr-xr-x. 5 root root 123 Jun 25 10:22 hrms-react
+drwxr-xr-x. 4 root root  98 Jul 18 11:47 Node-Grpah-api
+[root@HRMS-DB hrms-react-uat]# cd Node-Grpah-api/
+[root@HRMS-DB Node-Grpah-api]# pm2 start Node-Graph-api/ -i 1 --name Node-Graph-api
+[PM2][ERROR] Script not found: /root/hrms-react-uat/Node-Grpah-api/Node-Graph-api
+[root@HRMS-DB Node-Grpah-api]# cd ..
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Grpah-api/ -1 4 --name Node-Grpah-api/
+
+  error: unknown option `-1'
+
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Grpah-api/ -i 4 --name Node-Grpah-api/
+[PM2] Starting /root/hrms-react-uat/Node-Grpah-api in cluster_mode (4 instances)
+[PM2] Done.
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359267   │ 0s     │ 0    │ online    │ 0%       │ 60.9mb   │ root     │ disabled │
+│ 1  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359278   │ 0s     │ 0    │ online    │ 0%       │ 61.7mb   │ root     │ disabled │
+│ 2  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359289   │ 0s     │ 0    │ online    │ 0%       │ 51.1mb   │ root     │ disabled │
+│ 3  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359303   │ 0s     │ 0    │ online    │ 0%       │ 47.4mb   │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 kill
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0, 1, 2, 3 ])
+[PM2] [Node-Grpah-api/](1) ✓
+[PM2] [Node-Grpah-api/](0) ✓
+[PM2] [Node-Grpah-api/](2) ✓
+[PM2] [Node-Grpah-api/](3) ✓
+[PM2] [v] All Applications Stopped
+[PM2] [v] PM2 Daemon Stopped
+[root@HRMS-DB hrms-react-uat]# pm2 status
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Grpah-api/ -i 1 --name Node-Grpah-api/
+[PM2] Starting /root/hrms-react-uat/Node-Grpah-api in cluster_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359381   │ 0s     │ 0    │ online    │ 0%       │ 43.0mb   │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 startup
+[PM2] Init System found: systemd
+Platform systemd
+Template
+[Unit]
+Description=PM2 process manager
+Documentation=https://pm2.keymetrics.io/
+After=network.target
+
+[Service]
+Type=forking
+User=root
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+Environment=PATH=/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Environment=PM2_HOME=/root/.pm2
+PIDFile=/root/.pm2/pm2.pid
+Restart=on-failure
+
+ExecStart=/usr/local/lib/node_modules/pm2/bin/pm2 resurrect
+ExecReload=/usr/local/lib/node_modules/pm2/bin/pm2 reload all
+ExecStop=/usr/local/lib/node_modules/pm2/bin/pm2 kill
+
+[Install]
+WantedBy=multi-user.target
+
+Target path
+/etc/systemd/system/pm2-root.service
+Command list
+[ 'systemctl enable pm2-root' ]
+[PM2] Writing init configuration in /etc/systemd/system/pm2-root.service
+[PM2] Making script booting at startup...
+[PM2] [-] Executing: systemctl enable pm2-root...
+[PM2] [v] Command successfully executed.
++---------------------------------------+
+[PM2] Freeze a process list on reboot via:
+$ pm2 save
+
+[PM2] Remove init script via:
+$ pm2 unstartup systemd
+[root@HRMS-DB hrms-react-uat]# pm2 status
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359381   │ 43s    │ 0    │ online    │ 0%       │ 71.1mb   │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 stop Node-Grpah-api/
+[PM2] Applying action stopProcessId on app [Node-Grpah-api/](ids: [ 0 ])
+[PM2] [Node-Grpah-api/](0) ✓
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 0        │ 0      │ 0    │ stopped   │ 0%       │ 0b       │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Graph-api
+[PM2][ERROR] Script not found: /root/hrms-react-uat/Node-Graph-api
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Grpah-api/
+[PM2] Starting /root/hrms-react-uat/Node-Grpah-api in fork_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ Node-Grpah-api     │ default     │ 1.0.0   │ fork    │ 359690   │ 0s     │ 0    │ online    │ 0%       │ 10.9mb   │ root     │ disabled │
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 0        │ 0      │ 0    │ stopped   │ 0%       │ 0b       │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]# ^C
+[root@HRMS-DB hrms-react-uat]# pm2 kill
+[PM2] Applying action deleteProcessId on app [all](ids: [ 0, 1 ])
+[PM2] [Node-Grpah-api/](0) ✓
+[PM2] [Node-Grpah-api](1) ✓
+[PM2] [v] All Applications Stopped
+[PM2] [v] PM2 Daemon Stopped
+[root@HRMS-DB hrms-react-uat]# pm2 start Node-Grpah-api/ -i 1 --name Node-Grpah-api/
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+[PM2] Starting /root/hrms-react-uat/Node-Grpah-api in cluster_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ Node-Grpah-api/    │ default     │ 1.0.0   │ cluster │ 359939   │ 0s     │ 0    │ online    │ 0%       │ 43.0mb   │ root     │ disabled │
+└────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
+[root@HRMS-DB hrms-react-uat]#
