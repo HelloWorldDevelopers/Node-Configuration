@@ -200,3 +200,29 @@ $ pm2 unstartup systemd
 └────┴────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 [PM2][WARN] Current process list is not synchronized with saved list. App Node-Graph-api Node-Graph-api Node-Graph-api Node-Graph-api differs. Type 'pm2 save' to synchronize.
 [root@HRMS-DB hrms-react-uat]#
+
+
+
+------------------------------------------------------------------------NODE PM2 MONITOR -----------------------------------------------------------------------------------------------
+[root@HRMS-DB ~]# pm2 monitor
+[PM2 I/O] Using non-browser authentication.
+[PM2 I/O] Do you have a pm2.io account? (y/n) n
+[PM2 I/O] No problem ! We just need few informations to create your account
+[PM2 I/O] Please choose an username : vishaldabadeeee
+[PM2 I/O] Please choose an email : vishaldabade1711@gmail.com
+[PM2 I/O] Please choose a password : ***********
+
+[PM2 I/O] Do you accept the terms and privacy policy (https://pm2.io/legals/terms_conditions.pdf) ?  (y/n) y
+
+
+[PM2 I/O] Successfully authenticated
+[PM2 I/O] Successfully validated
+[PM2 I/O] By default we allow you to trial PM2 Plus for 14 days without any credit card.
+[PM2 I/O] Successfully created the bucket
+[PM2 I/O] Using: Public key: 2q9gk356y91vrcs | Private key: vrqsim3g9wynqgl | Machine name: HRMS-DB-daa7
+[+] PM2+ activated!
+[PM2 I/O] Successfully connected to bucket PM2 Plus Monitoring
+[PM2 I/O] You can use the web interface over there: https://app.pm2.io/#/bucket/669b8d0ceb1ec919bf0a6a10
+[root@HRMS-DB ~]# ^C
+[root@HRMS-DB ~]#
+
