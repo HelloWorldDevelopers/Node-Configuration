@@ -1,7 +1,10 @@
 ------------------------------------------------DEPLOYMENT COMMANDS-------------------------------------------------------------------
 
  1)  sudo npm install pm2 -g
- 2)  pm2 start Node-Grpah-api/ -i 4 --name Node-Graph-api # start the project on sever
+
+          # start your project using below 2nd option
+
+2)  pm2 start Node-Grpah-api/ -i 4 --name Node-Graph-api  
  3)  pm2 startup
  4)  pm2 save
  5)  pm2 status # check status 
